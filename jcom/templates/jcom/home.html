@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            background-color: black;
+        }
+        nav{
+            background: blue;
+            height: 80px;
+            width: 100%;
+            font-weight: bold;
+        }
+        label.logo{
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 100px;
+            font-weight: bold;
+        }
+        nav ul{
+            float:right;
+            margin-right: 20px;
+        }
+        nav ul li{
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+        nav ul li a{
+            color: white;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        .content{
+            color: white;
+        }
+        .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.online{
+    background-color: black;
+    color: white;
+ /* width: 500px;*/
+  border: 15px solid #05762e;
+ /* padding: 10px;
+  margin: 100px;*/
+  margin: 0 auto;
+		width: 700px;
+
+}
+.onl{
+    background-color: black;
+    color: white;
+ /* width: 500px;*/
+  border: 15px solid #FFCC00;
+ /* padding: 10px;
+  margin: 100px;*/
+  margin: 0 auto;
+		width: 700px;
+
+}
+      ol{
+    text-align: center;
+    background-color: #06340d;
+    font-size:35px;
+    color: white;
+         }
+        h2{
+            text-align: center;
+    background-color: #7f6101;
+    font-size:35px;
+    color: white;
+
+        }
+        dt{
+            text-align: center;
+            color: red;
+        }
+        dd{
+            text-align: center;
+        }
+
+        li {
+  list-style-type:disc;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <label class="logo"> Boggle</label>
+             <ul>
+            <li><a href="dsa.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li><br> <br>
+        </ul>
+    </nav>
+    <section>
+        <div class="content">
+        <br><br>    <h1>Boggle Word Game</h1><p>This is a simple and interesting free online puzzle to find the hidden English words from the scattered letters. This boggle online game is similar to a crossword game, but even more simplified and interesting to play. The puzzle enhances knowledge on English language and helps children and even elder people to find, to learn new English words. The free word game could also be used in Schools and English Tuition centers to educate and engage students to make their learning more interesting and simple.
+        
+                        </p></div>
+                        <p><br><br> hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh  <button onclick="location.href='{% url 'script' %}'"> Start game </button>
+                        <div class="online"><br><ol>Boggle Board Setup</ol><br><br><dt>Start Boggle</dt><br>
+                            <dd> Click on the Start game button to play the boggle online.</dd><br>
+                             <dt>Board Size</dt><br>
+                             <dd>Creates a Boggle board 4x4 and 5x5.</dd><br>
+
+                             <dt>Boggle Board</dt><br>
+                             <dd>
+                                 You could see a table of letters with each cell containing a letter.
+                                 The game is to find the hidden words of a minimum of 4 letters or more from the scattered letters.
+                             </dd><br>
+
+                             <dt>Solve Boggle</dt><br>
+                             <dd>
+                                 Solves the Boggle game. The word entered in the textbox must have the correct number of letters.
+                                 In other words, the Boggle board must be completely filled with letters to enable the Solve Boggle
+                                 button. No more. No less.
+                             </dd><br><br>
+                             <dt>End</dt><br>
+                             <dd>
+                                 Clicking the "End Game" button also displays all the possible combinations of letters forming meaningful words.
+                     
+                             </dd>
+                         </dl>
+</div><br>  <br>
+
+<div class="onl"><br><h2>Boggle Game Rules</h2><br><br>
+    <li>You can click on any box to start the free boggle online.
+    </li><br><li> You can click only the boxes adjacent to the last selected box.
+    </li><br><li>You could not jump boxes.
+    </li><br><li> The minimum number of letters in the word you discover should be 4 letters.
+    </li><br><li> For each correct word you discover, you earn <b>"1 point for a four letter text"</b>, <b>"2 points for a five letter text"</b>.
+    </li><br><li> For a wrong word, you earn a negative point.</li>
+    </li><br><li>You can play the game by setting timer.
+    </li><br><li>For 4x4 game, the time is set to 3 minutes and for 5x5 game, it is set to 5 minutes.
+    </li><br><li>You can continue playing even after the timer stops. </li>
+    
+ </dl>
+</div>
+
+
+</section>
+    
+</body>
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+<!--<link href="style.css" rel="stylesheet" type="text/css">-->
+<link href="css/circle.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+      @charset "utf-8";
+/* CSS Document */
+
+*
+{
+	margin:0;
+	padding:0;
+}
+*, *:before, *:after
+{
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+body,
+html{
+    height: 100%;
+}
+img 
+{
+    max-width: 100%;
+    height: auto;
+}
+body {
+    font: 16px/120% Arial, Helvetica, sans-serif;
+    color: #666;
+    word-wrap: break-word;
+	min-height: 100%;
+	background:#fff;
+}
+h1,h2,h3,h4,h5,h6 {
+    line-height: 120%;
+    color: #2f2f2f;
+}
+h1 {
+    font-size: 1.1em;
+}
+h2 {
+    font-size: 1.05em;
+	margin:10px 0;
+}
+h3 {
+    font-size: 1em;
+}
+h4 {
+    font-size: .95em;
+}
+h5 {
+    font-size: .9em;
+}
+h6 {
+    font-size: .85em;
+}
+p {
+    font-size: 1em;
+    line-height: 140%;
+	padding:7px 0;
+	color:#4d4d4d;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+.clearfix {
+    display: block;
+    zoom: 1
+}
+.clear {
+    clear: both;
+}
+.f_left {
+    float:left;
+}
+.f_right {
+    float:right;
+}
+header
+{
+	background:#323a45;
+}
+.header
+{
+	margin:0 auto;
+	width:1000px;
+	color:#fff;
+	padding:5px 0;
+}
+.logo
+{
+	float:left;
+	vertical-align:middle;
+	font-size:1.4em;
+	line-height:130%;
+	color:#fff;
+	font-weight:bold;
+	font:Arial Rounded MT Bold;
+	text-shadow:#000 1px 1px 0px;
+}
+.logo a
+{
+	color:#fff;
+	text-decoration: none;
+}
+.nav
+{
+	float:right;
+}
+.nav ul
+{
+	list-style:none;
+}
+.nav ul li
+{
+	float:left;
+	margin:4px 3px;
+	font-size:.9em;
+	color:#fff;
+	position:relative;
+	line-height:22px;
+}
+.nav ul li a
+{
+	padding:3px 10px;
+	color:inherit;
+	display:block;
+	text-decoration:none;
+	background:inherit;
+	
+}
+.nav ul li a:hover
+{
+	color:#fff;
+	background:#01a89e;
+}
+.menu_selected
+{
+	background:#01a89e !important;
+}
+.content
+{
+	margin:10px auto;
+	width:1000px;
+	display:table;
+}
+.list
+{
+	margin:7px auto;
+}
+.list ul
+{
+	list-style:none;
+	display:inline-block;
+}
+.list ul li
+{
+	font-size:.9em;
+	line-height:120%;
+	padding:7px 5px;
+	position:relative;
+	color:#666;
+}
+.list ul li:before
+{
+	content:"";
+	display:inline-block;
+	width: 0; 
+	height: 0; 
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 5px solid #d3d3d3;
+	margin-right:4px;
+}
+.list ul li:hover:before
+{
+	border-left: 5px solid #24b3b5;
+}
+.list ul li a
+{
+	color:inherit;
+	text-decoration:none;
+}
+.list ul li a:hover
+{
+	color:#24b3b5;
+}
+.footer
+{
+	padding:20px;
+	text-align:center;
+	font-size:.8em;
+	color:#a1b2bc;
+	background:#323a45;
+}
+.footer a
+{
+	color:#fff;
+	text-decoration:none;
+}
+.timer img
+{
+float: left;
+vertical-align: middle;
+}
+.timer div
+{
+float: left;
+vertical-align: middle;
+line-height: 32px;
+padding-left: 3px
+}	
+.timer
+{
+margin-right: 30px;
+color:#A34F42;
+font-weight: bold;
+float: right;
+cursor: pointer;
+}
+.game { text-align:center; }
+.game_container {
+    background:#eee;
+	width:100%;
+	display:table;
+	padding: 10px 0px 10px 10px;
+}
+
+.game_container_with_answer
+{
+	/*width:72%; */
+}
+.panel_1
+{
+	display: table-cell;
+	vertical-align: top;
+	border-right: #eee 10px solid;
+}
+.answer_part {  
+	width:200px; 
+	
+	
+	display: none;
+	vertical-align: top;
+	 background:#ffa333;
+	border-right: 10px solid #eee;
+}
+.answer
+{
+	height: 400px;
+	overflow: auto;
+}
+.info_panel {
+    background-color:#666B65;
+    border:solid 5px #666B65;
+	padding:10px;
+	margin-bottom:10px;
+	text-align: center;
+}
+.info_line_btn {
+	cursor: pointer;
+	display: inline-block;
+	background:#9fa7b4;
+	display: none;
+	font:24px  Arial, Helvetica, sans-serif;
+	color:#151618;
+	text-align:center;
+	vertical-align: middle;
+	padding: 10px;
+	
+}
+.info_line {
+	display: inline-block;
+	color:#9fa7b4;
+    font-size:36px;
+	text-align:center;
+	line-height:120%;
+	vertical-align: middle;
+	margin: 0 20px;
+}
+.info_line_width
+{
+	width:60% ! important;
+}
+
+.game_panel
+{
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 350px;
+}
+.correct {
+    box-shadow: 1px 1px 3px rgba(.3,0,0,0), inset 0 0 20px;
+    overflow: hidden;
+	background:#1ab1aa;
+	position: relative;
+	display: table-cell;
+	vertical-align: top;
+	
+}
+.game_cube {
+	 width:50%;
+    background:#000;
+	position: relative;
+	display: table-cell;
+    vertical-align: top;
+	border-left: 10px solid #eee;
+    border-right: 10px solid #eee;
+	
+
+	
+}
+.wrong {
+    background:#fa6f57;
+	position: relative;
+	display: table-cell;
+	vertical-align: top;
+}
+
+.correct_title {
+    width:100%;
+	padding:4%;
+    
+    color:#FFF;
+    font:20px Arial, Helvetica, sans-serif;
+    border-bottom:1px solid #5fc9c4;
+	background:rgba(0,0,0,.2);
+}
+.wrong_title {
+    width:100%;
+	padding:4%;
+   
+    color:#FFF;
+    font:20px Arial, Helvetica, sans-serif;
+    border-bottom:1px solid #fc9a8a;
+	background:rgba(0,0,0,.2);
+}
+.answer_title {
+    width:100%;
+	padding:4%;
+   
+    color:#FFF;
+    font:20px Arial, Helvetica, sans-serif;
+    border-bottom:1px solid #fc9a8a;
+	background:rgba(0,0,0,.2);
+}
+.word_card_container {
+    width:100%;
+   height:100%;
+    overflow-y:auto;
+}
+.left_box_scroll
+{
+	height:300px;
+	overflow: auto;
+}
+.wordCard {
+    height:38px;
+	border-bottom:1px solid rgba(255,255,255,.2);
+}
+.wordCard .word {
+    float:left;
+    height:38px;
+    width:75%;
+	color:#fff;
+	font:bold 16px Arial, Helvetica, sans-serif;
+	padding:4%;
+}
+.wordCard .point {
+    float:right;
+    height:37px;
+    line-height:38px;
+    width:20%;
+    margin-right:1px;
+    text-align:center;
+    background:rgba(0,0,0,.1);
+    ont:bold 16px Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+.letterBox {
+    background:#e7e4e4;
+    border:5px solid #ddd;
+    display:inline-block;
+	cursor: pointer;
+    font-family:Arial Rounded MT Bold;
+    text-align:center;
+    cursor:pointer;
+    width:21%;
+    height:21%;
+    font-size:48px;
+    line-height:68px;
+	margin:5px;
+}
+.letter_panel
+{
+	 background:#fff;
+	position: relative;
+	top:0px;
+	left: 0px;
+	text-align: center;
+}
+#gameCube[board="big"] .letterBox {
+    width: 16%;
+    height: 16%;
+    font-size: 40px;
+    
+}
+#answerboard[board="big"] .answer{
+    height: 485px;
+    
+    
+}
+#gameCube .letterBox:hover {
+    background-color: #EEE;
+}
+#gameCube .letterBox:active {
+    background-color: #FFF;
+}
+#gameCube .letterBox.selected {
+    background-color: #666;
+    color: #CCC;
+    cursor: default;
+}
+#cover {
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,.8);
+	position: relative;
+	margin-top: 40%;
+	transform: translateY(-50%);
+	
+}
+#cover .intro {
+    color: #CCC;
+    padding: 20px;
+	position: relative;
+	display: inline-block;
+
+	font-family: "Courier New", Courier, monospace;
+    font-size: 19px;
+    line-height: 120%;
+}
+#cover .waiting {
+    color: #CCC;
+    
+    font-size: 16px;
+    line-height: 120%;
+}
+#cover .startButton {
+    background-color: rgba(255,255,255,.5);
+    margin: 10px 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+	color: #fff;
+    opacity: 0;
+	padding: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.3);
+    -webkit-transition: color .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -ms-transition: all .2s;
+    transition: all .2s;
+}
+#cover .startButton:hover {
+    background-color: rgba(255,255,255,.7);
+}
+#cover .startButton:active {
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,.4);
+    line-height: 53px;
+}
+.correct span ,.wrong span ,.answer_part span{
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+    font-size: 16px;
+    margin-left: 7px;
+    padding: 0 10px;
+  
+  
+}
+.form
+{
+	margin:10px auto;
+}
+.form form
+{
+	padding:0;
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#333;
+	font-size:.8em;
+	line-height:1em;
+}
+.form form input[type="text"], .form form [type="password"], .form form [type="file"],textarea,select
+{
+	width:100%;
+	background:#fff;
+	border:#CCC 1px solid;
+	border-radius:.2em;
+	-moz-border-radius:.2em;
+	-webkit-border-radius:.2em;
+	-o-border-radius:.2em;
+	padding:5px;
+	margin-top:5px;
+	margin-bottom:15px;
+	height:40px;
+}
+.form form input:hover, .form form textarea:hover, .form form select:hover
+{
+	box-shadow:#dae1e5 0px 0px 5px;
+	-moz-box-shadow:#dae1e5 0px 0px 5px;
+	-webkit-box-shadow:#dae1e5 0px 0px 5px;
+	-o-box-shadow:#dae1e5 0px 0px 5px;
+}
+.form form input:focus, .form form textarea:focus, .form form select:focus
+{
+	border:#d7ce84 1px solid;
+}
+.form form input[type="file"]
+{
+	width:100%;
+	padding:0 1px;
+}
+.form form input[type="submit"], .form form input[type="reset"], .form form input[type="button"]
+{
+	padding:5px 10px;
+	font-weight:bold;
+	color:#fff;
+	cursor:pointer;
+	border-radius:.2em;
+	-moz-border-radius:.2em;
+	-webkit-border-radius:.2em;
+	-o-border-radius:.2em;
+	margin:10px 0;
+	height:40px;
+}
+.form form input[type="submit"]
+{
+	background:#57a91b;
+	border:#489a0c 1px solid;
+	border-bottom:#509c19 3px solid;
+	text-shadow:#396e12 1px 1px 0px;
+}
+.form form input[type="reset"]
+{
+	background:#d75553;
+	border:#b0403e 1px solid;
+	border-bottom:#c64e4c 3px solid;
+	text-shadow:#8c3736 1px 1px 0px;
+}
+.form form input[type="button"]
+{
+	background:#3276b1;
+	border:#165387 1px solid;
+	border-bottom:#2e6da3 3px solid;
+	text-shadow:#214d73 1px 1px 0px;;
+}
+.form form select
+{
+	width:100%;
+	padding:5px .5%;
+}
+.form form textarea
+{
+	min-height:200px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:1.31em;
+	padding:5px .5%;
+	line-height:18px;
+}
+
+@media screen and (max-width: 1030px) 
+{
+.header, .content, .footer
+{
+	width:100%;
+}
+
+}
+@media screen and (max-width:650px)
+{
+	.panel_1 ,.answer_part
+	{
+		display: block;
+		width: 100%;
+	}
+	.answer_part
+	{
+		border-top: 10px solid #eee; 
+	}
+	.info_line ,.info_line_btn
+	{
+		display: block;
+		float: none;
+		padding: 10px;
+		font-size: 20px;
+	}
+
+}
+@media screen and (max-width: 480px) 
+{
+.correct,.wrong,.game_cube
+{
+	display: block;
+	width:100%;
+	height: auto;
+	
+}
+	
+.game_cube {
+	
+	border-top: 10px solid #eee;
+    border-bottom: 10px solid #eee;
+
+	
+}
+.left_box_scroll,.answer
+{
+	height:200px;
+	
+}
+	.info_line ,.info_line_btn
+	{
+		display: block;
+		float: none;
+		padding: 10px;
+		font-size: 20px;
+	}
+
+}
+     body{
+        margin: 0;
+        padding: 0;
+        background: #262626;
+
+            }
+        .box {
+  background-color:#2617fb;
+  color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  font-size: 150%;
+  align-content: center;
+}
+.container .box:hover {
+  background: #57FEFF;
+  color:yellowgreen
+}
+
+.container {
+  width: 512px;
+  height: 550px;
+  display: grid;
+  margin: 150px auto;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 120px);
+grid-template-rows: repeat(4, 120px);
+  grid-auto-flow: column;
+  align-content: center;
+}
+
+    </style>
+</head>
+<body>
+  <div class="game">
+	
+    <div class='timer' id='timer-div'><img src='./timer.png' alt='Timer' id='timer_img'><div id='time' >00:00</div></div><div class='clear'></div>
+      <div class="game_container">
+      <div class='panel_1'>
+      
+      <div class='game_panel'>
+       <div class="correct" id="correctboard">
+            <div class="correct_title">Correct <span id="score">0</span></div>
+              <div class="word_card_container left_box_scroll">
+      
+        </div>
+          </div>
+          <div class="game_cube clearfix" id='gameCube' board="standard">
+             <div id="cover">
+          <div class="intro">Welcome to our Boggle game!!
+          <div class="waiting" style='margin-left: 30%;'>
+            
+          <div id='cicle_loader' class="c100 p1 small ">
+                      <span id='load_cnt'>0%</span>
+                      <div class="slice">
+                          <div class="bar"></div>
+                          <div class="fill"></div>
+                      </div>
+                  </div>
+                  <div>
+                      <a href="game.html">start Game</a><br> <br> <br> <br><br><br><br><br><br><br><br><br><br>
+                  </div>
+          
+          </div>
+          <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+            <div class="box">10</div>
+            <div class="box">11</div>
+            <div class="box">12</div>
+            <div class="box">13</div>
+            <div class="box">14</div>
+            <div class="box">15</div>
+            <div class="box">16</div>
+          </div>
+          Your Word:
+          <input type="text" name="word">
+          </div>
+        </div>
+         <div id='gameCube1' class='letter_panel clearfix'>
+        
+         </div>
+         </div>
+          <div class="wrong" id='errorboard'>
+            <div class="wrong_title">Wrong <span id="errorscore">0</span></div>
+              <div class="word_card_container left_box_scroll">
+                
+        </div>
+          </div> 
+      </div>
+      <div class="info_panel clearfix">
+            <div class="info_line_btn" onclick='rotate();' id='rotate'>Refresh</div>
+              <div class="info_line" id="infoLine">Welcome To Boggle</div>
+              <div class="info_line_btn" id='mainBtn'>End Game</div>
+          </div>
+      </div>
+          <div class="answer_part" id="answerboard"  board="standard">
+       <!--<p>style="display:none;"</p>-->
+     <div class="answer_title">Answers <span id="answer_count">0</span></div>
+         <div class="answer" >
+            
+              <div class="word_card_container" id='answer_words'>
+                
+        </div>
+          </div>
+      </div>
+      
+      </div>
+  
+  </div>
+   
+</body>
+</html>

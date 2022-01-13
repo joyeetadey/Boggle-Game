@@ -1,0 +1,18 @@
+<html>
+<head><title>5X5</title></head>
+    <body>
+    <table border="1" cellpadding="5" cellspacing="5">
+        {% for i in data %}
+        <tr>
+            <td><button>{{i.0}}</button></td>
+            <td><button>{{i.1}}</button></td>
+            <td><button>{{i.2}}</button></td>
+            <td><button>{{i.3}}</button></td>
+            <td><button>{{i.4}}</button></td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    <button>SUBMIT</button>
+    </body>
+</html>

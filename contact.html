@@ -1,0 +1,247 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Contact Us - Boggle.online</title>
+<META NAME="keywords" CONTENT="">
+<META NAME="description" CONTENT="">
+<meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="css/circle.css" rel="stylesheet" type="text/css">
+   <script type='text/javascript' src='./js/jquery.min.js'></script>
+  </head>
+<body>
+<header>
+<div class="header clearfix">
+    <div class="logo"><a href='./index.php'>Boggle</a></div>
+    <div class="nav" tabindex="0">
+        <ul>
+        <li><a href="./dsa.html"   >Home</a></li>
+     <!--   <li><a href="./contact-us.php" class='menu_selected'>Contact Us</a></li>-->
+        
+        </ul>
+    </div>
+</div>
+</header><div class="content clearfix">
+	<h1>Contact Us OR Any feedback</h1>
+    <p>Can We Help?</p>
+<div align="center">
+<style>
+    .boggle-responsive1 { width: 320px; height: 100px; }
+    @media(min-width: 500px) { .boggle-responsive1 { width: 468px; height: 60px; } }
+    @media(min-width: 800px) { .boggle-responsive1 { width: 100%; height: 90px; } }
+    @media(min-width: 1100px) { .boggle-responsive1 { width: 728px; height: 90px; } }
+</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- boggle-responsive1 -->
+<ins class="adsbygoogle boggle-responsive1"
+     style="display:block"
+     data-ad-client="ca-pub-2822270499244747"
+     data-ad-slot="1726431914"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>     <!-- general_list1 begins -->
+    <div class="general_list1 clearfix" style='width:60%;'>
+  <script type="text/javascript">
+
+loadImage=new Image;
+loadImage.src="./loader.gif";
+function mail_function(){
+  
+url1="https://www.boggle.online";
+	var mailit=$("#mailit").val();
+	//alert("mailit:"+mailit);
+var name1=$("#Name").val();
+var from1=$("#from").val();
+var feedback=$("#Description").val();
+var subject=$("#Subject").val();
+
+if(name1=="" || from1=="" || feedback=="" || subject==""){
+   $('.error_msg').css('display','none');
+   if(name1=="") {$('#err_Name').css('display','inline-block');$('#err_Name').html("Name cannot be empty");}
+   if(from1=="") {$('#err_from').css('display','inline-block');$('#err_from').html("MailID cannot be empty");}
+   if(feedback=="") {$('#err_Description').css('display','inline-block');$('#err_Description').html("Description cannot be empty");}
+   if(subject=="") {$('#err_Subject').css('display','inline-block');$('#err_Subject').html("Subject cannot be empty");}
+  //validateemail(this.id)
+   
+   //$('#contact-div').html("Enter All feilds");
+   return false;}else{
+//if(!checkMailId(from1)) {$('#contact-div').html("Enter Valid MailID");}else{
+ $('.error_msg').css('display','none');
+$('#err_Name').html("");
+$('#err_from').html("");
+$('#err_Description').html("");
+$('#err_Subject').html("");
+
+	if(!validateemail("from")){
+        
+        $('#err_from').html("Invalid mail id");}else{
+	  $('#contact-div').html(loadImage);
+		 $.ajax({
+                    type: 'POST',
+	                  url:'contacts.php',
+				            data:{
+		          "mailit"    : "mailit",
+			  "name"       : name1,
+			  "from":from1,
+		          "feedback":feedback,
+			  "subject":subject
+                          },
+				                  success: function(data) 
+		                      {
+		                          if(data) {//alert(data);
+					$('#contact-div').html(data);
+					$("#Name").val('');
+				        $("#from").val('');
+				        $("#Description").val('');
+				        $("#Subject").val('');
+					}
+		                          else {alert(data);
+				// $('#captcha-div').html(data);
+				//download(captcha);
+                               }     
+  	     	                }
+	        });
+	}
+	}}//}
+	function validatecheckform(id){
+		 var idval=$("#"+id).val();
+		 if(idval==""){
+			$('#err_'+id).css('display','inline-block');
+			$('#err_'+id).html(id+" cannot be empty");	  
+		 }else{
+
+			var mystring = document.getElementById(id).value; 
+			if(!mystring.match(/\S/))
+			{
+			  $("#"+id).val("");
+			  $('#err_'+id).css('display','inline-block');
+				$('#err_'+id).html(id+" cannot be empty");	  
+			}
+			else
+			{
+				$('#err_'+id).css('display','none');
+				$('#err_'+id).html("");	  
+			}	  
+		 }
+	}
+        
+       function validateemail(id){
+        var mail=$("#"+id).val();
+            var email=isValidEmail(mail);
+                if(email) {
+					$('#err_'+id).css('display','none');
+                    $("#err_"+id).html("");
+                    return true;}
+		else {
+			$("#"+id).val('');
+			 $('#err_'+id).css('display','inline-block');
+                    $("#err_"+id).html("Invalid mail id");
+		return false;}
+}
+   function isValidEmail(email)
+{
+	var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	 if(!filter.test(email))
+		return false;
+	 else
+		return true;
+}
+
+	</script>
+    
+
+
+    
+    <div id='contact-div'></div>
+	<!-- FORM STARTS -->
+		
+<div class="form">
+   		
+		<form  action="" name="mail" method="post" onsubmit="return checkMailId(mail.from.value)">
+		<input type="hidden" name="mailit" value="mailit" />
+		<span id="err_Name" class='error_msg'></span>
+				<input type="text" name="name" id="Name" placeholder="Name" onblur="validatecheckform(this.id)" />
+				<br />
+				<span id="err_from" class='error_msg'></span>
+				<input type="text" name="from" id="from" placeholder="Email" onblur="validateemail(this.id)" />
+				<br />
+				<span id="err_Subject" class='error_msg'></span>
+				<input type="text" name="subject"  id="Subject" placeholder="Subject" onblur="validatecheckform(this.id)" />
+				<br />
+				<span id="err_Description" class='error_msg'></span>
+					<textarea name="feedback" id="Description" placeholder="Description" onblur="validatecheckform(this.id)" style='height:150px;'></textarea>
+				<br />
+				<div class="clear"></div>
+				<input type="button" value="Send" class='run' onclick='mail_function()' />
+		
+		</form>
+</div>
+    </div>
+
+<div class='clearfix'> </div>
+    <div align='center' style='margin-top: 20px;'>
+        <div style='display: inline-block;'>
+            <style>
+                .boggle-responsive2 { width: 300px; height: 250px; }
+            </style>
+            
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- boggle-responsive2 -->
+            <ins class="adsbygoogle boggle-responsive2"
+                 style="display:block"
+                 data-ad-client="ca-pub-2822270499244747"
+                 data-ad-slot="3203165117"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> 
+        </div>
+        
+        <div style='display: inline-block; padding-left:10px;'>
+            <style>
+                .boggle-responsive3 { display:none; }
+                @media(min-width:650px) { .boggle-responsive3 {width: 300px; height: 250px; display:inline-block; } }
+            </style>
+            
+       <!--     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>  -->
+            <!-- boggle-responsive3 -->
+         <!--   <ins class="adsbygoogle boggle-responsive3"
+                 data-ad-client="ca-pub-2822270499244747"
+                 data-ad-slot="4679898311"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> 
+        </div>
+    </div>
+<div class='clearfix'> </div>
+   </div>-->
+
+
+
+<script type="text/javascript">
+    var chf_sess = "";
+    var chf_sess_mail = "";
+    var chf_sess_mobile = "";
+</script>
+
+
+<!--<link href="//www.boggle.online/commoncode/footer/chf_style.min.css?v1.3" rel="stylesheet" type="text/css">-->
+<!--script type="text/javascript" src="//www.boggle.online/commoncode/footer/chf_script.js?v.1"></script-->
+<!--<script type="text/javascript">
+	var fv='?v7.4';
+	window.addEventListener('load', 
+  	function() { 
+	   	var homeurl="//www.boggle.online/commoncode/footer";
+	    	var tag1 = document.createElement("script");
+		tag1.src = homeurl+'/chf_script.js'+fv;
+	  	document.getElementsByTagName("head")[0].appendChild(tag1);
+   	}, false);
+
+</script>-->
+    </body>
+    
+</html>

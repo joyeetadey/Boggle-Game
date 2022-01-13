@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>game</title>
+    <style>
+      body {
+        font-family: 'Lato', sans-serif;
+        background-color: black;
+      }
+      a {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+      }
+      table {
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+      td,
+      tr {
+        border: #804000 5px solid;
+        color: #804000;
+        background: linear-gradient(to right, #fdc578 0%, #d3842f 100%);
+        font-size: 40px;
+        width: 50px;
+        text-align: center;
+        font-weight: bold;
+      }
+      button {
+        font-weight: bold;
+        font-size: 40px;
+        color: white;
+        border-radius: 10px;
+        padding: 20px;
+        width: 300px;
+      }
+      #btn1 {
+        background-color: orangered;
+        border: orange 10px solid;
+      }
+      #btn2 {
+        background-color: #008060;
+        border: #00cc99 10px solid;
+      }
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>C</td>
+        <td>H</td>
+        <td>O</td>
+        <td>O</td>
+        <td>S</td>
+        <td>E</td>
+        <td></td>
+        <td>Y</td>
+        <td>O</td>
+        <td>U</td>
+        <td>R</td>
+        <td></td>
+        <td>G</td>
+        <td>R</td>
+        <td>I</td>
+        <td>D</td>
+      </tr>
+    </table>
+    <div class="center">
+      <h2>
+        <button onclick="location.href='{% url 'script1' %}'" id="btn1">
+          4X4
+        </button>
+        <hr />
+
+        <br /><br />
+      </h2>
+      <h2>
+        <button onclick="location.href='{% url 'script2' %}'" id="btn2">
+          5x5
+        </button>
+        <hr />
+        <br />
+        <h1 style="color: white; text-align: center">Lets Play!!!</h1>
+      </h2>
+    </div>
+  </body>
+</html>
